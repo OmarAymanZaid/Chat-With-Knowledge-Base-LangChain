@@ -1,4 +1,4 @@
-# Chat-With-Knowledge-Base-LangChain
+#  📖 Chat-With-Knowledge-Base-LangChain
 
 A lightweight **Retrieval-Augmented Generation (RAG)** chatbot built with **LangChain**, **Google Gemini**, and **ChromaDB**. The application allows you to ask questions about your own documents by retrieving relevant information before generating an answer.
 
