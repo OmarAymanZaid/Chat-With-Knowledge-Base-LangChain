@@ -45,7 +45,7 @@ class LLMProviderFactory:
                 model=self.config.GENERATION_MODEL_NAME,
                 google_api_key=self.config.GOOGLE_API_KEY,
                 temperature=temp,
-                max_tokens=tokens,
+                max_output_tokens=tokens,
             )
 
         logger.error(f"Unsupported LLM provider: {provider}")
