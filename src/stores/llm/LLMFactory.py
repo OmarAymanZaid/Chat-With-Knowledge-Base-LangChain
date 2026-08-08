@@ -1,6 +1,7 @@
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from loguru import logger
 
 from src.helpers.configs import Settings
@@ -39,6 +40,14 @@ class LLMProviderFactory:
                 max_tokens=tokens,
             )
 
+        if provider == ModelProvider.GOOGLE.value:
+            return ChatGoogleGenerativeAI(
+                model=self.config.GENERATION_MODEL_NAME,
+                google_api_key=self.config.GOOGLE_API_KEY,
+                temperature=temp,
+                max_tokens=tokens,
+            )
+
         logger.error(f"Unsupported LLM provider: {provider}")
         raise ValueError(f"Provider '{provider}' is not supported.")
 
@@ -53,6 +62,13 @@ class LLMProviderFactory:
                 api_key=self.config.OPENAI_API_KEY,
                 base_url=self.config.OPENAI_API_URL or None,
             )
+
+        if provider == ModelProvider.GOOGLE.value:
+            return GoogleGenerativeAIEmbeddings(
+                model=self.config.EMBEDDING_MODEL_NAME,
+                google_api_key=self.config.GOOGLE_API_KEY
+            )
+
 
         logger.error(f"Unsupported Embedding provider: {provider}")
         raise ValueError(f"Provider '{provider}' is not supported.")
