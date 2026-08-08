@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file="src/.env",
         env_file_encoding="utf-8",
         case_sensitive=False,
         extra="ignore",
@@ -42,6 +42,10 @@ class Settings(BaseSettings):
     VECTORSTORE_PROVIDER: str = "CHROMA"
     VECTORSTORE_COLLECTION_NAME: str = "rag_knowledge_base"
     VECTORSTORE_PERSIST_DIR: str = "src/assets/vectorstores"
+
+    # Chunking Specs
+    CHUNK_SIZE: int = 500
+    CHUNK_OVERLAP: int = 50
 
     # Retrieval Specs
     RETRIEVAL_SEARCH_TYPE: str = "similarity"
