@@ -8,3 +8,4 @@ loguru==0.7.3
 
 langchain-openai==1.4.2
 langchain-google-genai==4.3.2
+langchain-chroma==1.1.0
