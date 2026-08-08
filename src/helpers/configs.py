@@ -35,6 +35,8 @@ class Settings(BaseSettings):
     # Keys and URLs
     OPENAI_API_KEY: str | None = None
     OPENAI_API_URL: str | None = None
+    GOOGLE_API_KEY: str | None = None
+
 
     # VectorStore Specs
     VECTORSTORE_PROVIDER: str = "CHROMA"
