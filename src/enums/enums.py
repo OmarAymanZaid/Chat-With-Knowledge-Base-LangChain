@@ -6,3 +6,6 @@ class ModelProvider(str, Enum):
 class ModelTier(str, Enum):
     FAST = "fast"
     REASONING = "reasoning"
+
+class VectorStoreProvider(str, Enum):
+    CHROMA = "CHROMA"

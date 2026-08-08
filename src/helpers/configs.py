@@ -36,6 +36,11 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str | None = None
     OPENAI_API_URL: str | None = None
 
+    # VectorStore Specs
+    VECTORSTORE_PROVIDER: str = "CHROMA"
+    VECTORSTORE_COLLECTION_NAME: str = "rag_knowledge_base"
+    VECTORSTORE_PERSIST_DIR: str = "src/assets/vectorstores"
+
 
     @property
     def is_local(self) -> bool:
