@@ -20,11 +20,6 @@ class Settings(BaseSettings):
     LANGCHAIN_API_KEY: str | None = None
     LANGCHAIN_PROJECT: str = "default-chain-engine"
 
-    # Keys & Defaults
-    DEFAULT_MODEL_PROVIDER: str = "OPENAI"
-    DEFAULT_MODEL_NAME: str = "gpt-4o-mini"
-    DEFAULT_TEMPERATURE: float = 0.1
-    DEFAULT_MAX_TOKENS: int = 512
 
     @property
     def is_local(self) -> bool:
