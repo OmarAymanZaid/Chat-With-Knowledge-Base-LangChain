@@ -32,6 +32,10 @@ class Settings(BaseSettings):
     EMBEDDING_MODEL_NAME: str = "embed-multilingual-light-v3.0"
     EMBEDDING_MODEL_SIZE: int = 384
 
+    # Keys and URLs
+    OPENAI_API_KEY: str | None = None
+    OPENAI_API_URL: str | None = None
+
 
     @property
     def is_local(self) -> bool:
