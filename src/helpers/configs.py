@@ -17,6 +17,7 @@ class Settings(BaseSettings):
 
     # Telemetry
     LANGCHAIN_TRACING_V2: bool = False
+    LANGSMITH_API_KEY: str | None = None
     LANGCHAIN_API_KEY: str | None = None
     LANGCHAIN_PROJECT: str = "default-chain-engine"
 
