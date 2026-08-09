@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from typing import Any
 import gradio as gr
 from loguru import logger
@@ -9,6 +11,7 @@ from src.helpers.configs import Settings
 from src.stores.llm.LLMFactory import LLMProviderFactory
 from src.stores.vectorstore.VectorStoreFactory import VectorStoreFactory
 
+load_dotenv(override=True)
 
 def initialize_rag_system():
     """Boots up core configuration and infrastructure primitives once."""
@@ -56,6 +59,11 @@ def handle_user_query(message: str, history: Any) -> str:
     """Handles query submission through the RAG chain."""
     if not message.strip():
         return "Please enter a valid prompt."
+
+    # PRINT DIAGNOSTIC TO TERMINAL
+    print(f"Tracing Enabled: {os.getenv('LANGSMITH_TRACING') or os.getenv('LANGCHAIN_TRACING_V2')}")
+    print(f"Project Target:  {os.getenv('LANGSMITH_PROJECT') or os.getenv('LANGCHAIN_PROJECT')}")
+    print(f"API Key Present: {bool(os.getenv('LANGSMITH_API_KEY') or os.getenv('LANGCHAIN_API_KEY'))}")
 
     try:
         response = rag_chain.invoke(message)
